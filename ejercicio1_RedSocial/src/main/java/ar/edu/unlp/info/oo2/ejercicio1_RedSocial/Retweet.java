@@ -6,13 +6,4 @@ public class Retweet implements Publicacion {
 	public Retweet(Tweet tweet) {
 		this.tweet = tweet;
 	}
-	
-	public boolean contieneTweet(Tweet tweet) {
-		return this.tweet == tweet;
-	}
-
-	@Override
-	public boolean esRetweet() {
-		return true;
-	}
 }

@@ -12,22 +12,13 @@ public class Usuario {
 		this.screenName = screenName;
 	}
 	
-	public void tweetear(Tweet tweet) {
-		publicaciones.add(tweet);
+	public void tweetear(String mensaje) {
+		if (mensaje.length() > 1 && mensaje.length() <= 280) {
+			publicaciones.add(new Tweet(mensaje));
+		}
 	}
 	
 	public void retweetear(Tweet tweet) {
-		Retweet retweet = new Retweet(tweet);
-		publicaciones.add(retweet);
-	}
-	
-	public void eliminarPublicaciones() {
-		publicaciones.removeAll(publicaciones);
-	}
-	
-	public boolean contieneTweet(Tweet tweet) {
-		return publicaciones.stream()
-				.filter(publicacion -> publicacion.esRetweet())
-				.anyMatch(retweet -> retweet.contieneTweet(tweet));
+		publicaciones.add(new Retweet(tweet));
 	}
 }
